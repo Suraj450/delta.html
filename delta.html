@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="delta.css">
+</head>
+<body>
+<h1> Food Track </h1>
+ 
+		  <form onsubmit="return false">
+		  Weight: <input type="text" id="weight" placeholder="Weight in KG" required /> <br></br>
+		  Height: <input type="text" id="height" placeholder="Height in cm" required /> <br></br>
+            <button type="submit" class="btn" onclick="getcalorie()" > press for calorie needed/day </button>
+		  calorie/day: <input type="text" id="calorie" placeholder="calorie/day needed by your body" size="50" />
+		   </form> 
+       		<div class="assumption"> calculation of calorie/day assumes you are having active lifestyle and age is 21. </div>
+			<script>
+			
+      function getcalorie(){
+    var weight= document.getElementById('weight').value;
+      var height= document.getElementById('height').value;
+	  height=height/100;
+	  calorie=weight/(height*height);
+	  calorie=calorie*125;
+	  calorie=Math.round(calorie);
+	  document.getElementById('calorie').value=calorie;
+}
+</script> <br> </br>
+	  <form>
+		  food items name: <input type="text" id="food name" placeholder="write in this way: item1,item2,item3..."  size="50" /><br></br>
+		  Carbohydrate amount in gram: <input type="text" id="carb" placeholder="write in this way: carb1,carb2,carb3...respectively" size="50" />  <br></br>
+		  Protein amount in gram: <input type="text" id="protein" placeholder="write in this way: prot1,prot2,prot3...respectively" size="50" />  <br></br>
+		  Calorie amount in gram: <input type="text" id="cal" placeholder="total calorie of your one day food" size="50"/>  <br></br>
+           <button type="submit" class="btn" onclick="showstatus()" > press for your calorie status </button>
+        </form>		   
+          	<script>
+			function showstatus(){
+			  if( document.getElementById('cal').value < calorie)
+			      alert(" you need to take more calorie ");
+				 else if( document.getElementById('cal').value > calorie)
+			      alert(" you need to take less calorie ");
+				  else
+			      alert(" you are taking proper calorie ");
+			
+			}
+			</script>
+		 
+
+   </body>
+   </html>
